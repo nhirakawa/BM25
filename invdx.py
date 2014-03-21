@@ -8,13 +8,15 @@ class InvertedIndex:
 	def __init__(self):
 		self.index = dict()
 
-	def add(self, word, doc):
+	def add(self, word, docid):
 		if word in self.index:
-			d = self.index[word]
-			d[doc] += 1
+			if docid in self.index[word]:
+				self.index[word][docid] += 1
+			else:
+				self.index[word][docid] = 1
 		else:
 			d = dict()
-			d[doc] = 1
+			d[docid] = 1
 			self.index[word] = d
 
 	#frequency of word in document
@@ -48,3 +50,9 @@ class DocumentLengthTable:
 			return self.table[docid]
 		else:
 			raise LookupError('%s not found in table' % str(docid))
+
+	def get_average_length(self):
+		sum = 0
+		for length in self.table.itervalues():
+			sum += length
+		return float(sum) / float(len(self.table))

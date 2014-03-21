@@ -9,11 +9,11 @@ b = 0.75
 R = 0.0
 
 
-def rank_BM25(n_i, f_i, qf_i, r_i, N, dl, avdl):
+def rank_BM25(n, f, qf, r, N, dl, avdl):
 	K = compute_K(dl, avdl)
-	first = log( ( (r_i + 0.5) / (R - r_i + 0.5) ) / ( (n_i - r_i + 0.5) / (N - n_i - R + r_i + 0.5)) )
-	second = ((k1 + 1) * f_i) / (K + f_i)
-	third = ((k2+1) * qf_i) / (k2 + qf_i)
+	first = log( ( (r + 0.5) / (R - r + 0.5) ) / ( (n - r + 0.5) / (N - n - R + r + 0.5)) )
+	second = ((k1 + 1) * f) / (K + f)
+	third = ((k2+1) * qf) / (k2 + qf)
 	return first * second * third
 
 

@@ -44,6 +44,13 @@ class DataStructureTest(unittest.TestCase):
 		idx.add('cba', 2)
 		self.assertTrue('cba' in idx)
 
+	def test_inverted_index_get_item(self):
+		idx = InvertedIndex()
+		idx.add('abc', 1)
+		self.assertEqual(idx['abc'], {1 : 1})
+		idx.add('abc', 1)
+		self.assertEqual(idx['abc'], {1 : 2})
+
 	def test_document_length_table(self):
 		dlt = DocumentLengthTable()
 		dlt.add(1, 32)

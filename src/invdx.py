@@ -11,6 +11,9 @@ class InvertedIndex:
 	def __contains__(self, item):
 		return item in self.index
 
+	def __getitem__(self, item):
+		return self.index[item]
+
 	def add(self, word, docid):
 		if word in self.index:
 			if docid in self.index[word]:

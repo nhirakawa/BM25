@@ -14,8 +14,11 @@ class CorpusParser:
 			s = ''.join(f.readlines())
 		blobs = s.split('#')[1:]
 		for x in blobs:
-			split = x.split()
-			docid = split.pop(0)
+			text = x.split()
+			docid = text.pop(0)
+
+	def get_corpus(self):
+		pass
 
 
 class QueryParser:

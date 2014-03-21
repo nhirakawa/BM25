@@ -56,3 +56,18 @@ class DocumentLengthTable:
 		for length in self.table.itervalues():
 			sum += length
 		return float(sum) / float(len(self.table))
+
+
+def build_data_structures(corpus):
+	idx = InvertedIndex()
+	dlt = DocumentLengthTable()
+	for docid in corpus:
+
+		#build inverted index
+		for word in corpus[docid]:
+			idx.add(word, docid)
+
+		#build document length table
+		length = len(corpus[docid])
+		dlt.add(docid, length)
+	return idx, dlt

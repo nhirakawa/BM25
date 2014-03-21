@@ -8,6 +8,7 @@ class CorpusParser:
 	def __init__(self, filename):
 		self.filename = filename
 		self.regex = re.compile('^#\s*\d+')
+		self.corpus = dict()
 
 	def parse(self):
 		with open(self.filename) as f:
@@ -16,9 +17,10 @@ class CorpusParser:
 		for x in blobs:
 			text = x.split()
 			docid = text.pop(0)
+			self.corpus[docid] = text
 
 	def get_corpus(self):
-		pass
+		return self.corpus
 
 
 class QueryParser:

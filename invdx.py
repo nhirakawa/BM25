@@ -17,6 +17,7 @@ class InvertedIndex:
 			d[doc] = 1
 			self.index[word] = d
 
+	#frequency of word in document
 	def get_document_frequency(self, word, docid):
 		if word in self.index:
 			if docid in self.index[word]:
@@ -26,6 +27,12 @@ class InvertedIndex:
 		else:
 			raise LookupError('%s not in index' % str(word))
 
+	#frequency of word in index, i.e. number of documents that contain word
+	def get_index_frequency(self, word):
+		if word in self.index:
+			return len(self.index[word])
+		else:
+			raise LookupError('%s not in index' % word)
 
 
 class DocumentLengthTable:

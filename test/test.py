@@ -1,9 +1,9 @@
 __author__ = 'Nick Hirakawa'
 
 import unittest
-from invdx import *
-from parse import *
-from rank import *
+
+from src.invdx import *
+from src.rank import *
 
 
 class ParseTester(unittest.TestCase):

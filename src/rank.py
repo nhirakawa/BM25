@@ -1,7 +1,7 @@
 __author__ = 'Nick Hirakawa'
 
 
-from math import *
+from math import log
 
 k1 = 1.2
 k2 = 100

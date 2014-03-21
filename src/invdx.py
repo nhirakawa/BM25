@@ -8,6 +8,9 @@ class InvertedIndex:
 	def __init__(self):
 		self.index = dict()
 
+	def __contains__(self, item):
+		return item in self.index
+
 	def add(self, word, docid):
 		if word in self.index:
 			if docid in self.index[word]:

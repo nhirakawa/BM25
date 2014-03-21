@@ -18,6 +18,18 @@ class CorpusParser:
 			docid = split.pop(0)
 
 
+class QueryParser:
+
+	def __init__(self, filename):
+		self.filename = filename
+		with open(filename) as f:
+			lines = ''.join(f.readlines())
+		self.queries = [x.rstrip() for x in lines.split('\n')[:-1]]
+
+	def get_queries(self):
+		return self.queries
+
+
 if __name__ == '__main__':
-	cp = CorpusParser('text/tccorpus.txt')
-	cp.parse()
+	qp = QueryParser('text/queries.txt')
+	print qp.get_queries()

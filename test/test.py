@@ -4,6 +4,13 @@ import unittest
 
 from src.invdx import *
 from src.rank import *
+from src.query import *
+
+
+class QueryTester(unittest.TestCase):
+
+	def test_run_query(self):
+		pass
 
 
 class ParseTester(unittest.TestCase):

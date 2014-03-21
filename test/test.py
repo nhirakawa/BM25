@@ -50,6 +50,8 @@ class DataStructureTest(unittest.TestCase):
 		self.assertEqual(idx['abc'], {1 : 1})
 		idx.add('abc', 1)
 		self.assertEqual(idx['abc'], {1 : 2})
+		idx.add('abc', 2)
+		self.assertEqual(idx['abc'], {1 : 2, 2 : 1})
 
 	def test_document_length_table(self):
 		dlt = DocumentLengthTable()

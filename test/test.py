@@ -15,8 +15,8 @@ class ParseTester(unittest.TestCase):
 class RankTest(unittest.TestCase):
 
 	def test_BM25(self):
-		result = rank_BM25(40000, 15, 1, 0, 500000, 9, 10)
-		result += rank_BM25(300, 25, 1, 0, 500000, 9, 10)
+		result = score_BM25(40000, 15, 1, 0, 500000, 9, 10)
+		result += score_BM25(300, 25, 1, 0, 500000, 9, 10)
 		self.assertAlmostEqual(result, 20.66, delta=0.05)
 
 	def test_computeK(self):

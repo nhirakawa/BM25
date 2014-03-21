@@ -9,7 +9,7 @@ b = 0.75
 R = 0.0
 
 
-def rank_BM25(n, f, qf, r, N, dl, avdl):
+def score_BM25(n, f, qf, r, N, dl, avdl):
 	K = compute_K(dl, avdl)
 	first = log( ( (r + 0.5) / (R - r + 0.5) ) / ( (n - r + 0.5) / (N - n - R + r + 0.5)) )
 	second = ((k1 + 1) * f) / (K + f)

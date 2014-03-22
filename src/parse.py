@@ -27,7 +27,10 @@ class QueryParser:
 
 	def __init__(self, filename):
 		self.filename = filename
-		with open(filename) as f:
+		self.queries = []
+
+	def parse(self):
+		with open(self.filename) as f:
 			lines = ''.join(f.readlines())
 		self.queries = [x.rstrip() for x in lines.split('\n')[:-1]]
 

@@ -5,6 +5,7 @@ import unittest
 from src.invdx import *
 from src.rank import *
 from src.query import *
+from src.parse import *
 
 
 class QueryTester(unittest.TestCase):
@@ -15,8 +16,19 @@ class QueryTester(unittest.TestCase):
 
 class ParseTester(unittest.TestCase):
 
-	def run_tests(self):
-		pass
+	def test_corpus_parser(self):
+		cp = CorpusParser(filename='../text/corpus.txt')
+		cp.parse()
+		corpus = cp.get_corpus()
+		self.assertEqual(len(corpus), 3204)
+		self.assertEqual(corpus['3204'][:3], ['an', 'on', 'line'])
+
+	def test_query_parser(self):
+		qp = QueryParser(filename='../text/queries.txt')
+		qp.parse()
+		queries = qp.get_queries()
+		self.assertEqual(queries[0], ['portabl', 'oper', 'system'])
+
 
 
 class RankTest(unittest.TestCase):

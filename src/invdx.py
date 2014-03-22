@@ -48,6 +48,9 @@ class DocumentLengthTable:
 	def __init__(self):
 		self.table = dict()
 
+	def __len__(self):
+		return len(self.table)
+
 	def add(self, docid, length):
 		self.table[docid] = length
 

@@ -62,7 +62,7 @@ class DocumentLengthTable:
 
 	def get_average_length(self):
 		sum = 0
-		for length in self.table.itervalues():
+		for length in self.table.values():
 			sum += length
 		return float(sum) / float(len(self.table))
 
